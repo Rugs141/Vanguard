@@ -5,20 +5,22 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     BuildManager buildManager;
+    public TurretBluePrint turret1;
+    public TurretBluePrint turret2;
 
     private void Start()
     {
         buildManager = BuildManager.Instance;
     }
-    public void PurchaseStandardTurret()
+    public void SelectPurchaseStandardTurret()
     {
         Debug.Log("Turret Purchased!");
-        buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
+        buildManager.SelectTurretToBuild(turret1);
     }
 
-    public void PurchaseAnotherTurret()
+    public void SelectPurchaseAnotherTurret()
     {
         Debug.Log("Another Turret Bought!");
-        buildManager.SetTurretToBuild(buildManager.anotherTurretPrefab);
+        buildManager.SelectTurretToBuild(turret2);
     }
 }
