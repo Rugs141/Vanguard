@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class Bullet : MonoBehaviour
 {
     private Transform target;
     public GameObject impactEffect;
+
+    public int damage = 50;
 
     public float speed = 70f;
 
@@ -22,7 +25,6 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
@@ -33,6 +35,7 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(target);
     }
 
     void HitTarget()
@@ -40,7 +43,18 @@ public class Bullet : MonoBehaviour
         GameObject effectINs = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectINs, 2f );
 
-        Destroy(target.gameObject);
+        Damage(target);
         Destroy(gameObject);
     }
+
+    void Damage(Transform enemy)
+    {
+        Enemy e = enemy.GetComponent<Enemy>();
+
+        if (e != null)
+        {
+            e.TakeDamage(damage);
+        }
+    }
+
 }
