@@ -6,6 +6,15 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager Instance;
 
+    public GameObject standardTurretPrefab;
+    public GameObject anotherTurretPrefab;
+    public GameObject buildEffect;
+
+    private Node selectedNode;
+    public NodeUI nodeUI;
+
+    private TurretBluePrint turretToBuild;
+
     private void Awake()
     {
         if (Instance != null)
@@ -15,14 +24,6 @@ public class BuildManager : MonoBehaviour
         }
         Instance = this;
     }
-
-    public GameObject standardTurretPrefab;
-    public GameObject anotherTurretPrefab;
-
-    public GameObject buildEffect;
-    
-
-    private TurretBluePrint turretToBuild;
 
     public bool CanBuild
     {
@@ -55,9 +56,31 @@ public class BuildManager : MonoBehaviour
         Debug.Log("Turret built. Money: " + PlayerStats.money);
     }
 
+    public void SelectNode(Node node)
+    {
+        if (selectedNode == node)
+        {
+            DeselectNode();
+            return;
+        }
+
+        selectedNode = node;
+        turretToBuild = null;
+
+        nodeUI.SetTarget(node);
+    }
+
+    public void DeselectNode()
+    {
+        selectedNode = null;
+        nodeUI.Hide();
+    }
 
     public void SelectTurretToBuild(TurretBluePrint turret)
     {
         turretToBuild = turret;
+        selectedNode = null;
+
+        DeselectNode();
     }
 }
