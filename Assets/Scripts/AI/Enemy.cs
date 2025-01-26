@@ -1,25 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 10f;
+    public float startSpeed = 10f;
+    [HideInInspector]
+    public float speed;
 
-    public int health = 100;
+    public float health = 100;
     public int giveMoneyOnDeath = 75;
-
-    private Transform target;
-    private int wavePointIndex = 0;
 
     public GameObject deathEffect;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        target = Waypoints.points[0];
+        speed = startSpeed;
     }
-    public void TakeDamage(int amount)
+
+    public void TakeDamage(float amount)
     {
         health -= amount;
 
@@ -39,34 +40,8 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Slow(float amount)
     {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
-        {
-            GetNextWayPoint();
-        }
+        speed = startSpeed * (1f - amount);
     }
-
-    void GetNextWayPoint()
-    {
-        if (wavePointIndex >= Waypoints.points.Length - 1)
-        {
-            PathEnded();
-            return;
-        }
-
-        wavePointIndex++;
-        target = Waypoints.points[wavePointIndex];
-    }
-
-    void PathEnded()
-    {
-        PlayerStats.lives--;
-        Destroy(gameObject);
-    }
-
 }
