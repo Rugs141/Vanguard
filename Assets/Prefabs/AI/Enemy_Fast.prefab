@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4967908515942343171}
   - component: {fileID: 4888550428224767821}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: Enemy_Fast
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,10 +271,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a7edea41120f94d9647438735f50d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 10
+  startSpeed: 30
   speed: 10
-  startHealth: 100
-  giveMoneyOnDeath: 75
+  startHealth: 50
+  giveMoneyOnDeath: 250
   deathEffect: {fileID: 7279568671404741518, guid: 69aab33de265f4648b654b2e8a046ecf,
     type: 3}
   hpBar: {fileID: 1979464356589535863}

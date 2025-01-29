@@ -44,6 +44,7 @@ public class EnemyMovement : MonoBehaviour
     void PathEnded()
     {
         PlayerStats.lives--;
+        WaveSpawner.enemyAlive--;
         Destroy(gameObject);
     }
 
