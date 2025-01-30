@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1007
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 57
+  controlID: 44
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -325,8 +325,8 @@ MonoBehaviour:
     y: 0
     width: 370
     height: 408
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -351,8 +351,8 @@ MonoBehaviour:
     y: 0
     width: 496
     height: 957
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -395,7 +395,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -45888
+  m_LastSelectedObjectID: -4690
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -740,9 +740,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 35.97561, y: 3.3897336, z: 40.15798}
+    m_Target: {x: 15.580492, y: 23.744154, z: 20.546886}
     speed: 2
-    m_Value: {x: 35.97561, y: 3.3897336, z: 40.15798}
+    m_Value: {x: 15.580492, y: 23.744154, z: 20.546886}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -788,13 +788,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.04729415, y: -0.3131908, z: 0.015552648, w: -0.9484177}
+    m_Target: {x: -0.28656083, y: -0.48536634, z: 0.17208089, w: -0.8079392}
     speed: 2
-    m_Value: {x: -0.047315933, y: -0.31175798, z: 0.015481201, w: -0.9488565}
+    m_Value: {x: -0.28776157, y: -0.48508945, z: 0.17280234, w: -0.80747813}
   m_Size:
-    m_Target: 3.6500208
+    m_Target: 3.0956035
     speed: 2
-    m_Value: 3.6500208
+    m_Value: 3.0956035
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -857,9 +857,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 1a93ffff1e93ffff00faffffd46e0000de6f00003471000060720000
+      m_SelectedIDs: ee9bffff
+      m_LastClickedID: -25618
+      m_ExpandedIDs: 2cfbffff5e6c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1029,7 +1029,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Turrets/T1_Turret_Upgrade
+    - Assets/Prefabs/AI
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1037,16 +1037,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Turrets/T1_Turret_Upgrade
+  - Assets/Prefabs/AI
   m_LastFoldersGridSize: -1
   m_LastProjectPath: F:\GAMEJAM YATW\Vanguard
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 37}
-    m_SelectedIDs: 962f0000
-    m_LastClickedID: 12182
-    m_ExpandedIDs: 00000000922f00001479000016790000187900003079000000ca9a3b
+    m_SelectedIDs: 7e770000
+    m_LastClickedID: 30590
+    m_ExpandedIDs: 00000000487700004a7700004c770000647700007c77000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1074,7 +1074,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000147900001679000018790000
+    m_ExpandedIDs: 00000000487700004a7700004c770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1241,7 +1241,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 496
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
