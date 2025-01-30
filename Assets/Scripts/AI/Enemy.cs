@@ -1,27 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 10f;
+    public float startSpeed = 10f;
+    [HideInInspector]
+    public float speed;
 
-    public int health = 100;
+    public float startHealth = 100;
+    private float health;
+
     public int giveMoneyOnDeath = 75;
-
-    private Transform target;
-    private int wavePointIndex = 0;
 
     public GameObject deathEffect;
 
-    // Start is called before the first frame update
-    void Start()
+    public Image hpBar;
+
+
+    private void Start()
     {
-        target = Waypoints.points[0];
+        speed = startSpeed;
+        health = startHealth;
     }
-    public void TakeDamage(int amount)
+
+    public void TakeDamage(float amount)
     {
         health -= amount;
+
+        hpBar.fillAmount = health / startHealth;
 
         if (health < 0)
         {
@@ -36,37 +45,13 @@ public class Enemy : MonoBehaviour
         GameObject Effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(Effect, 5f);
 
+        WaveSpawner.enemyAlive--;
+
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Slow(float amount)
     {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
-        {
-            GetNextWayPoint();
-        }
+        speed = startSpeed * (1f - amount);
     }
-
-    void GetNextWayPoint()
-    {
-        if (wavePointIndex >= Waypoints.points.Length - 1)
-        {
-            PathEnded();
-            return;
-        }
-
-        wavePointIndex++;
-        target = Waypoints.points[wavePointIndex];
-    }
-
-    void PathEnded()
-    {
-        PlayerStats.lives--;
-        Destroy(gameObject);
-    }
-
 }
