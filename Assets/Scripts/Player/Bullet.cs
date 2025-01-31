@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     private Transform target;
     public GameObject impactEffect;
 
+    public float explosionRadius = 0f;
+
     public int damage = 50;
 
     public float speed = 70f;
@@ -43,8 +45,27 @@ public class Bullet : MonoBehaviour
         GameObject effectINs = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectINs, 2f );
 
-        Damage(target);
+        if (explosionRadius > 0f)
+        {
+            Explode();
+        }else
+        {
+            Damage(target);
+        }
+
         Destroy(gameObject);
+    }
+
+    void Explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == "Enemy")
+            {
+                Damage(collider.transform);
+            }
+        }
     }
 
     void Damage(Transform enemy)
@@ -55,6 +76,12 @@ public class Bullet : MonoBehaviour
         {
             e.TakeDamage(damage);
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius); 
     }
 
 }
