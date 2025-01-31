@@ -19,9 +19,9 @@ public class Shop : MonoBehaviour
         buildManager.SelectTurretToBuild(turret1);
     }
 
-    public void SelectPurchaseAnotherTurret()
+    public void SelectPurchaseMissleTurret()
     {
-        Debug.Log("Another Turret Bought!");
+        Debug.Log("Missle Turret Bought!");
         buildManager.SelectTurretToBuild(turret2);
     }
     public void SelectLaser()
